@@ -9,13 +9,15 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Удобный онлайн-сервис для загрузки, хранения и обмена фотографиями
+              ImageSpot
             </h1>
 
             <p className="text-xl text-slate-300 mb-8 max-w-2xl">
-              ImageSpot позволяет легко загружать изображения в облако,
+              {" "}
+              удобный онлайн-сервис для загрузки, хранения и обмена
+              фотографиями. Он позволяет легко загружать изображения в облако,
               редактировать их, создавать альбомы и делиться с друзьями и
-              коллегами.
+              коллегами
             </p>
 
             <Button
