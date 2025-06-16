@@ -26,7 +26,7 @@ const Hero = () => {
               className="bg-amber-500 hover:bg-amber-600 text-black font-semibold px-8 py-3 text-lg"
             >
               <Icon name="Upload" className="mr-2" size={20} />
-              Выбрать изображение
+              Начать загрузку
             </Button>
 
             <Button
