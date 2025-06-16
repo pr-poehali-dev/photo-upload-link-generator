@@ -1,48 +1,67 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 import Icon from "@/components/ui/icon";
 
 interface PhotoPreviewProps {
   files: File[];
-  onRemove: (index: number) => void;
+  progress: number;
+  isUploading: boolean;
 }
 
-const PhotoPreview: React.FC<PhotoPreviewProps> = ({ files, onRemove }) => {
-  if (files.length === 0) return null;
-
+const PhotoPreview: React.FC<PhotoPreviewProps> = ({
+  files,
+  progress,
+  isUploading,
+}) => {
   return (
-    <div className="w-full max-w-4xl mx-auto mt-8">
-      <h3 className="text-xl font-semibold mb-4 text-slate-800">
-        Предварительный просмотр ({files.length} фото)
-      </h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {files.map((file, index) => (
-          <Card key={index} className="relative overflow-hidden">
-            <CardContent className="p-0">
-              <div className="aspect-square bg-slate-100 flex items-center justify-center relative">
-                <img
-                  src={URL.createObjectURL(file)}
-                  alt={`Preview ${index + 1}`}
-                  className="max-w-full max-h-full object-cover"
-                />
-                <button
-                  onClick={() => onRemove(index)}
-                  className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600 transition-colors"
-                >
-                  <Icon name="X" size={16} />
-                </button>
-              </div>
-              <div className="p-3">
-                <p className="text-sm text-slate-600 truncate">{file.name}</p>
-                <p className="text-xs text-slate-400">
-                  {(file.size / 1024 / 1024).toFixed(1)} MB
+    <Card className="w-full max-w-2xl mx-auto">
+      <CardHeader>
+        <CardTitle className="text-center text-2xl text-slate-800 flex items-center justify-center gap-2">
+          <Icon name="Upload" size={24} className="text-amber-500" />
+          Загрузка фотографий
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-4">
+          {files.map((file, index) => (
+            <div
+              key={index}
+              className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg"
+            >
+              <Icon name="Image" size={20} className="text-slate-500" />
+              <div className="flex-1">
+                <p className="font-medium text-slate-800">{file.name}</p>
+                <p className="text-sm text-slate-500">
+                  {(file.size / 1024 / 1024).toFixed(2)} МБ
                 </p>
               </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
+              {progress === 100 ? (
+                <Icon name="CheckCircle" size={20} className="text-green-500" />
+              ) : (
+                <Icon name="Clock" size={20} className="text-amber-500" />
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-6">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-sm text-slate-600">
+              {isUploading ? "Загрузка и обработка..." : "Завершено"}
+            </span>
+            <span className="text-sm text-slate-600">{progress}%</span>
+          </div>
+          <Progress value={progress} className="h-3" />
+        </div>
+
+        {progress === 100 && (
+          <div className="mt-4 text-center text-green-600 font-medium">
+            Все файлы успешно загружены и обработаны!
+          </div>
+        )}
+      </CardContent>
+    </Card>
   );
 };
 

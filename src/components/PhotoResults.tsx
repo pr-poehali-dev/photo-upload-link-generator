@@ -12,9 +12,12 @@ const PhotoResults: React.FC<PhotoResultsProps> = ({ photos, onReset }) => {
   if (photos.length === 0) return null;
 
   const generateShareLink = (filename: string) => {
-    // Имитация генерации уникальной ссылки
     const randomId = Math.random().toString(36).substring(2, 15);
-    return `https://studio-classic.ru/photo/${randomId}`;
+    return `https://imagespot.ru/photo/${randomId}`;
+  };
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
   };
 
   return (
@@ -38,7 +41,7 @@ const PhotoResults: React.FC<PhotoResultsProps> = ({ photos, onReset }) => {
                   <div>
                     <p className="font-medium text-slate-800">{photo.name}</p>
                     <p className="text-sm text-slate-500">
-                      Ссылка: {generateShareLink(photo.name)}
+                      {generateShareLink(photo.name)}
                     </p>
                   </div>
                 </div>
@@ -46,6 +49,16 @@ const PhotoResults: React.FC<PhotoResultsProps> = ({ photos, onReset }) => {
                   <Button variant="outline" size="sm">
                     <Icon name="Download" size={16} />
                     Скачать
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() =>
+                      copyToClipboard(generateShareLink(photo.name))
+                    }
+                  >
+                    <Icon name="Copy" size={16} />
+                    Копировать ссылку
                   </Button>
                   <Button variant="outline" size="sm">
                     <Icon name="Share" size={16} />
