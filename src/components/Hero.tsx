@@ -5,38 +5,50 @@ import Icon from "@/components/ui/icon";
 const Hero = () => {
   return (
     <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
-      <div className="container mx-auto px-4 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 font-serif">
-            Image<span className="text-amber-400">Spot</span>
-          </h1>
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="flex-1 text-center lg:text-left">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Удобный онлайн-сервис для загрузки, хранения и обмена фотографиями
+            </h1>
 
-          <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
-            Удобный онлайн-сервис для загрузки, хранения и обмена фотографиями
-          </p>
-
-          <p className="text-lg text-slate-400 mb-12 max-w-3xl mx-auto">
-            Легко загружайте изображения в облако, редактируйте их, создавайте
-            альбомы и делитесь с друзьями и коллегами
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button
-              size="lg"
-              className="bg-amber-500 hover:bg-amber-600 text-black font-semibold px-8 py-3 text-lg"
-            >
-              <Icon name="Upload" className="mr-2" size={20} />
-              Начать загрузку
-            </Button>
+            <p className="text-xl text-slate-300 mb-8 max-w-2xl">
+              ImageSpot позволяет легко загружать изображения в облако,
+              редактировать их, создавать альбомы и делиться с друзьями и
+              коллегами.
+            </p>
 
             <Button
-              variant="outline"
               size="lg"
-              className="border-slate-600 text-slate-300 hover:bg-slate-800 px-8 py-3 text-lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 text-lg"
             >
-              <Icon name="Play" className="mr-2" size={20} />
-              Посмотреть демо
+              Начать бесплатно
             </Button>
+          </div>
+
+          <div className="flex-1 flex justify-center">
+            <div className="grid grid-cols-3 gap-4 max-w-md">
+              <img
+                src="https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500"
+                alt="Nature"
+                className="col-span-2 w-full h-32 object-cover rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=500"
+                alt="Mountains"
+                className="row-span-2 w-full h-full object-cover rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500"
+                alt="Landscape"
+                className="w-full h-20 object-cover rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500"
+                alt="Forest"
+                className="w-full h-20 object-cover rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+              />
+            </div>
           </div>
         </div>
       </div>

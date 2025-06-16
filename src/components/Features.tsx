@@ -6,37 +6,37 @@ const Features = () => {
   const features = [
     {
       icon: "CloudUpload",
-      title: "Облачное хранение",
+      title: "Быстрая загрузка",
       description:
-        "Безопасно храните тысячи фотографий в облаке с доступом из любой точки мира",
+        "Загружайте изображения в высоком качестве без ограничений по размеру файла",
     },
     {
-      icon: "Edit",
-      title: "Простое редактирование",
+      icon: "Lock",
+      title: "Безопасное хранение",
       description:
-        "Обрезайте, поворачивайте и улучшайте фотографии прямо в браузере",
-    },
-    {
-      icon: "FolderOpen",
-      title: "Умные альбомы",
-      description:
-        "Организуйте фотографии в альбомы и находите нужные снимки мгновенно",
+        "Все ваши файлы защищены и доступны только по уникальным ссылкам",
     },
     {
       icon: "Share2",
       title: "Легкий обмен",
-      description: "Делитесь фотографиями и альбомами с друзьями одним кликом",
+      description: "Делитесь изображениями с друзьями и коллегами в один клик",
     },
     {
-      icon: "Shield",
-      title: "Надежная защита",
-      description: "Ваши фотографии защищены современными методами шифрования",
+      icon: "FolderOpen",
+      title: "Упорядочивание в альбомы",
+      description:
+        "Создавайте альбомы и организуйте свои фотографии по категориям",
+    },
+    {
+      icon: "Edit",
+      title: "Редактирование",
+      description:
+        "Базовые инструменты для редактирования изображений прямо на платформе",
     },
     {
       icon: "Smartphone",
-      title: "Доступ везде",
-      description:
-        "Работайте с фотографиями с любого устройства через веб-браузер",
+      title: "Мобильная версия",
+      description: "Полный доступ к вашим изображениям с любого устройства",
     },
   ];
 
@@ -45,7 +45,7 @@ const Features = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
-            Всё для ваших фотографий
+            Наши возможности
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Мощные инструменты для работы с изображениями в одном удобном
@@ -57,17 +57,17 @@ const Features = () => {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="hover:shadow-lg transition-shadow duration-300 border-slate-200"
+              className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-slate-200"
             >
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Icon
                     name={feature.icon}
                     size={32}
-                    className="text-amber-600"
+                    className="text-blue-600"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">
+                <h3 className="text-xl font-semibold text-slate-900 mb-4">
                   {feature.title}
                 </h3>
                 <p className="text-slate-600 leading-relaxed">
